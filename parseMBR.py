@@ -5,6 +5,8 @@ import sys
 import argparse
 import os.path
 
+from argparse import RawTextHelpFormatter
+
 version = "P1.0"
 
 class Partition:
@@ -279,7 +281,7 @@ def findMBR(filename, offset):
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(prog = "parseMBR.py", description="(c) Daniel Rådesjö 2020")
+    parser = argparse.ArgumentParser(prog = "parseMBR.py", description="Author:\tDaniel Rådesjö (daniel.radesjo@gmail.com)\n\thttps://github.com/daniel-radesjo/parseMBR", formatter_class=RawTextHelpFormatter)
     parser.add_argument("image", action="store", type=str, help="raw/dd source image")
     parser.add_argument("-o", help="byte offset (default: 0)", default="0", metavar="<offset>", type=int)
     parser.add_argument("-f", help="find MBR offsets", action="store_true")
