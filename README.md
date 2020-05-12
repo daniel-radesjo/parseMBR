@@ -17,9 +17,9 @@ optional arguments:
   -f             find MBR offsets
   -v, --version  show program's version number and exit
 ```
+ 
 
-
-Example
+Example (parse information):
 ```
 python parseMBR.py 10-ntfs-disk.dd
 Offset  Hex     Length  Description     Value
@@ -52,3 +52,11 @@ Offset  Hex     Length  Description     Value
 494     0x1ee   16      Partition 4     0x0000...0000 = No partition configured
 510     0x1fe   2       Boot signature  0x55aa
 ```
+
+ 
+ Example (carve):
+ ```
+python parseMBR.py -f 10-ntfs-disk.dd
+Offset        DiskSign    Part 1      Part 2      Part 3      Part 4      BootSign
+0             0xfc23b344  63          96390       0           0           0x55aa
+ ```
